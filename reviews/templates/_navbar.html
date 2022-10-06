@@ -1,0 +1,31 @@
+<nav class="bg-neutral-900 w-full h-12 flex items-center px-8 md:px-16">
+    <div class="mx-auto font-bold flex items-center gap-x-1 group cursor-default">
+        <span class="text-blue-600 group-hover:text-gray-100 transition-colors duration-300">LIT</span>
+        <span class="group-hover:text-purple-600 transition-colors duration-300">Reviews</span>
+    </div>
+    <div class="flex items-center gap-x-2">
+        <a href="#" class="flex items-center gap-x-2 cursor-pointer bg-gradient-to-r hover:from-purple-700 hover:to-blue-600 transition-all duration-300 px-2 py-1 rounded">
+            <i class="fa-solid fa-home"></i>
+            <span class="font-semibold text-sm hidden md:block">Flux</span>
+        </a>
+        <a href="#" class="flex items-center gap-x-2 cursor-pointer bg-gradient-to-r hover:from-purple-700 hover:to-blue-600 transition-all duration-300 px-2 py-1 rounded">
+            <i class="fa-solid fa-compass"></i>
+            <span class="font-semibold text-sm hidden md:block">Posts</span>
+        </a>
+        <a href="#" class="flex items-center gap-x-2 cursor-pointer bg-gradient-to-r hover:from-purple-700 hover:to-blue-600 transition-all duration-300 px-2 py-1 rounded">
+            <i class="fa-solid fa-star"></i>
+            <span class="font-semibold text-sm hidden md:block">Abonnements</span>
+        </a>
+        {% if user.is_authenticated %}
+        <a href="#" class="flex items-center gap-x-2 cursor-pointer bg-gradient-to-r hover:from-purple-700 hover:to-blue-600 transition-all duration-300 px-2 py-1 rounded">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="font-semibold text-sm hidden md:block bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text hover:text-transparent">Se deconnecter</span>
+        </a>
+        {% else %}
+        <a href="login" class="flex items-center gap-x-2 cursor-pointer hover:bg-gray-100 hover:text-purple-700 transition-all duration-300 px-2 py-1 rounded">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <span class="font-semibold text-sm hidden md:block bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text hover:text-transparent">Se connecter</span>
+        </a>
+        {% endif %}
+    </div>
+</nav>
