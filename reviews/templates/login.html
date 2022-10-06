@@ -1,0 +1,32 @@
+{% extends '_base.html' %} {% block content %} {% include '_navbar.html' %}
+<div class="flex items-center justify-center w-full h-full">
+  <form class="flex flex-col gap-y-12 w-1/3">
+    <div class="flex items-center relative">
+      <input
+        placeholder="‎"
+        type="email"
+        name="email"
+        id="email"
+        class="rounded bg-transparent border-2 border-white focus:ring-0 focus:border-white peer w-full"
+      />
+      <label
+        for="email"
+        class="absolute bg-gradient-to-r text-sm from-purple-400 to-blue-400 bg-clip-text uppercase font-semibold peer-focus:px-0 peer-placeholder-shown:px-4 pointer-events-none peer-placeholder-shown:text-white/80 transition-all duration-300 peer-focus:text-transparent text-transparent peer-focus:-translate-y-10 -translate-y-10 peer-placeholder-shown:translate-y-0"
+        >Courriel</label>
+    </div>
+    <div class="flex items-center relative">
+      <input
+        placeholder="‎"
+        type="password"
+        name="password"
+        id="password"
+        class="rounded bg-transparent border-2 border-white focus:ring-0 focus:border-white peer w-full"
+      />
+      <label
+        for="password"
+        class="absolute bg-gradient-to-r text-sm from-purple-400 to-blue-400 bg-clip-text uppercase font-semibold peer-focus:px-0 peer-placeholder-shown:px-4 pointer-events-none peer-placeholder-shown:text-white/80 transition-all duration-300 peer-focus:text-transparent text-transparent peer-focus:-translate-y-10 -translate-y-10 peer-placeholder-shown:translate-y-0"
+        >Mot de passe</label>
+    </div>
+  </form>
+</div>
+{% endblock content %}
