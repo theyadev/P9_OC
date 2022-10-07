@@ -20,6 +20,21 @@
     <div class="flex items-center relative">
       <input
         placeholder="‎"
+        type="text"
+        name="email"
+        id="email"
+        required
+        class="rounded bg-transparent border-2 hover:border-purple-500 transition-all duration-300 border-white focus:ring-0 focus:border-white peer w-full"
+      />
+      <label
+        for="email"
+        class="absolute bg-gradient-to-r text-sm from-purple-400 to-blue-400 bg-clip-text uppercase font-semibold peer-focus:px-0 peer-placeholder-shown:px-4 pointer-events-none peer-placeholder-shown:text-white/80 transition-all duration-300 peer-focus:text-transparent text-transparent peer-focus:-translate-y-10 -translate-y-10 peer-placeholder-shown:translate-y-0"
+        >Courriel</label
+      >
+    </div>
+    <div class="flex items-center relative">
+      <input
+        placeholder="‎"
         type="password"
         name="password"
         id="password"
@@ -30,6 +45,21 @@
         for="password"
         class="absolute bg-gradient-to-r text-sm from-purple-400 to-blue-400 bg-clip-text uppercase font-semibold peer-focus:px-0 peer-placeholder-shown:px-4 pointer-events-none peer-placeholder-shown:text-white/80 transition-all duration-300 peer-focus:text-transparent text-transparent peer-focus:-translate-y-10 -translate-y-10 peer-placeholder-shown:translate-y-0"
         >Mot de passe</label
+      >
+    </div>
+    <div class="flex items-center relative">
+      <input
+        placeholder="‎"
+        type="password"
+        name="confirm_password"
+        id="confirm_password"
+        required
+        class="rounded bg-transparent border-2 hover:border-blue-500 transition-all duration-300 border-white focus:ring-0 focus:border-white peer w-full"
+      />
+      <label
+        for="confirm_password"
+        class="absolute bg-gradient-to-r text-sm from-purple-400 to-blue-400 bg-clip-text uppercase font-semibold peer-focus:px-0 peer-placeholder-shown:px-4 pointer-events-none peer-placeholder-shown:text-white/80 transition-all duration-300 peer-focus:text-transparent text-transparent peer-focus:-translate-y-10 -translate-y-10 peer-placeholder-shown:translate-y-0"
+        >Confirmez votre mot de passe</label
       >
     </div>
     {% if error %}
@@ -43,18 +73,11 @@
       </button>
     </div>
     {% endif %}
-    <div class="w-full grid grid-cols-2 gap-x-4">
-      <button
-        class="uppercase text-sm font-semibold flex items-center justify-center w-full bg-purple-700 rounded py-2 hover:bg-purple-500 transition-all duration-300"
-      >
-        Se connecter
-      </button>
-      <a
-        href="{% url 'signup' %}"
-        class="uppercase text-sm font-semibold flex items-center justify-center w-full bg-blue-700 rounded py-2 text-center hover:bg-blue-500 transition-all duration-300"
-        >S'inscrire</a
-      >
-    </div>
+    <button
+      class="uppercase text-sm font-semibold flex items-center justify-center w-full bg-purple-700 rounded py-2 hover:bg-purple-500 transition-all duration-300"
+    >
+      S'inscrire
+    </button>
   </form>
 </div>
 {% endblock content %} {% block javascript %}

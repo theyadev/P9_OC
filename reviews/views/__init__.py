@@ -1,2 +1,4 @@
-from .index import index
-from .login import login
+from .index import index_view
+from .login import login_view
+from .logout import logout_view
+from .signup import signup_view
