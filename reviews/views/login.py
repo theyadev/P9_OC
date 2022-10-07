@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 
 
 def login_view(request):
-    redirect_url = request.GET.get('to', '/')
+    redirect_url = request.GET.get('next', '/')
 
     if request.user.is_authenticated:
         return redirect(redirect_url)

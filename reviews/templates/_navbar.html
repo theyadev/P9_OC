@@ -12,7 +12,7 @@
             <i class="fa-solid fa-compass"></i>
             <span class="hidden text-sm font-semibold md:block">Posts</span>
         </a>
-        <a href="#" class="flex items-center px-2 py-1 transition-all duration-300 rounded cursor-pointer gap-x-2 bg-gradient-to-r hover:from-purple-700 hover:to-blue-600">
+        <a href="{% url 'subscriptions' %}" class="flex items-center px-2 py-1 transition-all duration-300 rounded cursor-pointer gap-x-2 bg-gradient-to-r hover:from-purple-700 hover:to-blue-600">
             <i class="fa-solid fa-star"></i>
             <span class="hidden text-sm font-semibold md:block">Abonnements</span>
         </a>
@@ -22,7 +22,7 @@
             <span class="hidden text-sm font-semibold md:block bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text hover:text-transparent">Se deconnecter</span>
         </a>
         {% else %}
-        <a href="{% url 'login' %}?to={{ request.path }}" class="flex items-center px-2 py-1 transition-all duration-300 rounded cursor-pointer gap-x-2 hover:bg-gray-100 hover:text-purple-700">
+        <a href="{% url 'login' %}?next={{ request.path }}" class="flex items-center px-2 py-1 transition-all duration-300 rounded cursor-pointer gap-x-2 hover:bg-gray-100 hover:text-purple-700">
             <i class="fa-solid fa-right-to-bracket"></i>
             <span class="hidden text-sm font-semibold md:block bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text hover:text-transparent">Se connecter</span>
         </a>
