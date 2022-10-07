@@ -14,3 +14,12 @@ Développez une application Web en utilisant Django
 - In another terminal launch tailwind for JIT mode using `python3 manage.py tailwind start`
 ### Start the website
 - Start the website using `python3 manage.py runserver`
+## Test Data
+### Admin
+- username: admin 
+- email: admin@test.com
+- password: admin
+### Basic User
+- username: user 
+- email: user@gmail.com
+- password: user
