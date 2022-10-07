@@ -1,0 +1,83 @@
+{% extends '_base.html' %} {% block content %} {% include '_navbar.html' %}
+<div class="flex flex-col w-3/4 py-4 mx-auto md:w-2/3 gap-y-4">
+  <div class="flex flex-col w-full gap-y-2">
+    <h3 class="font-semibold uppercase">Suivre un utilisateur</h3>
+    <div class="h-0.5 bg-white w-full"></div>
+    <form method="post" class="flex w-full mt-1 gap-x-2">
+      {% csrf_token %}
+      <input type="text" name="follow" id="follow" class="hidden" />
+      <input
+        type="text"
+        name="username"
+        id="username"
+        placeholder="Nom d'utilisateur"
+        required
+        class="w-4/5 transition-all duration-300 bg-transparent border-2 border-white rounded hover:border-purple-500 focus:ring-0 focus:border-white peer"
+      />
+      <button
+        type="submit"
+        class="flex items-center justify-center flex-grow px-4 py-2 font-bold text-white transition-all duration-300 rounded bg-gradient-to-r from-purple-700 to-blue-600 hover:opacity-90 hover:scale-95"
+      >
+        Suivre
+      </button>
+    </form>
+  </div>
+  <div class="flex flex-col w-full gap-y-2">
+    <h3 class="font-semibold uppercase">Abonnements</h3>
+    <div class="h-0.5 bg-white w-full"></div>
+    <div class="flex flex-col">
+      {% for follow in following %}
+      <div class="flex items-center gap-x-2">
+        <form method="post">
+          {% csrf_token %}
+          <input type="text" name="unfollow" id="unfollow" class="hidden" />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="hidden"
+            value="{{ follow.followed_user.username }}"
+          />
+          <button
+            type="submit"
+            class="px-4 py-2 font-bold text-white transition-all duration-300 rounded hover:text-red-500"
+          >
+            <i class="fa-solid fa-multiply"> </i>
+          </button>
+        </form>
+        <p
+          class="font-bold text-transparent bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text"
+        >
+          {{follow.followed_user.username}}
+        </p>
+      </div>
+      {% empty %}
+      <div class="flex items-center gap-x-2">
+        <i class="fa-solid fa-face-frown"></i>
+        <p>Vous ne suivez personne</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="flex flex-col w-full gap-y-2">
+    <h3 class="font-semibold uppercase">Abonnés</h3>
+    <div class="h-0.5 bg-white w-full"></div>
+    <div class="flex flex-col">
+      {% for follow in followers %}
+      <div class="flex items-center gap-x-2">
+        <p
+          class="font-bold text-transparent bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text"
+        >
+          {{follow.user.username}}
+        </p>
+      </div>
+      {% empty %}
+      <div class="flex items-center gap-x-2">
+        <i class="fa-solid fa-face-surprise"></i>
+        <p>Personne ne vous suit</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -805,6 +805,18 @@ select {
   margin-bottom: -2rem;
 }
 
+.mt-0\.5 {
+  margin-top: 0.125rem;
+}
+
+.mt-0 {
+  margin-top: 0px;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -841,6 +853,14 @@ select {
   height: 100%;
 }
 
+.h-0\.5 {
+  height: 0.125rem;
+}
+
+.h-0 {
+  height: 0px;
+}
+
 .w-screen {
   width: 100vw;
 }
@@ -851,6 +871,24 @@ select {
 
 .w-2\/3 {
   width: 66.666667%;
+}
+
+.w-4\/5 {
+  width: 80%;
+}
+
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.w-3\/4 {
+  width: 75%;
+}
+
+.flex-grow {
+  flex-grow: 1;
 }
 
 .border-collapse {
@@ -918,6 +956,18 @@ select {
   row-gap: 3rem;
 }
 
+.gap-y-4 {
+  row-gap: 1rem;
+}
+
+.gap-y-2 {
+  row-gap: 0.5rem;
+}
+
+.gap-y-3 {
+  row-gap: 0.75rem;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -972,6 +1022,16 @@ select {
 .bg-pink-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(190 24 93 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r {
@@ -1085,6 +1145,11 @@ select {
   color: transparent;
 }
 
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -1115,6 +1180,12 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.hover\:scale-95:hover {
+  --tw-scale-x: .95;
+  --tw-scale-y: .95;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .hover\:border-purple-500:hover {
   --tw-border-opacity: 1;
   border-color: rgb(168 85 247 / var(--tw-border-opacity));
@@ -1140,6 +1211,20 @@ select {
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-blue-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-opacity-60:hover {
+  --tw-bg-opacity: 0.6;
+}
+
 .hover\:from-purple-700:hover {
   --tw-gradient-from: #7e22ce;
   --tw-gradient-to: rgb(126 34 206 / 0);
@@ -1157,6 +1242,19 @@ select {
 
 .hover\:text-transparent:hover {
   color: transparent;
+}
+
+.hover\:text-red-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.hover\:opacity-60:hover {
+  opacity: 0.6;
+}
+
+.hover\:opacity-90:hover {
+  opacity: 0.9;
 }
 
 .focus\:border-white:focus {
@@ -1229,6 +1327,10 @@ select {
 
   .md\:w-1\/2 {
     width: 50%;
+  }
+
+  .md\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .md\:px-16 {
