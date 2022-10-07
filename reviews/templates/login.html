@@ -1,57 +1,60 @@
 {% extends '_base.html' %} {% block content %} {% include '_navbar.html' %}
 <div class="flex flex-col items-center justify-center w-full h-full">
-  <form method="post" class="flex flex-col gap-y-12 w-1/3">
+  <form
+    method="post"
+    class="flex flex-col w-full px-8 gap-y-12 md:w-1/2 lg:w-1/3"
+  >
     {% csrf_token %}
-    <div class="flex items-center relative">
+    <div class="relative flex items-center">
       <input
         placeholder="‎"
         type="text"
         name="username"
         id="username"
         required
-        class="rounded bg-transparent border-2 hover:border-purple-500 transition-all duration-300 border-white focus:ring-0 focus:border-white peer w-full"
+        class="w-full transition-all duration-300 bg-transparent border-2 border-white rounded hover:border-purple-500 focus:ring-0 focus:border-white peer"
       />
       <label
         for="username"
-        class="absolute bg-gradient-to-r text-sm from-purple-400 to-blue-400 bg-clip-text uppercase font-semibold peer-focus:px-0 peer-placeholder-shown:px-4 pointer-events-none peer-placeholder-shown:text-white/80 transition-all duration-300 peer-focus:text-transparent text-transparent peer-focus:-translate-y-10 -translate-y-10 peer-placeholder-shown:translate-y-0"
+        class="absolute text-sm font-semibold text-transparent uppercase transition-all duration-300 -translate-y-10 pointer-events-none bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text peer-focus:px-0 peer-placeholder-shown:px-4 peer-placeholder-shown:text-white/80 peer-focus:text-transparent peer-focus:-translate-y-10 peer-placeholder-shown:translate-y-0"
         >Nom d'utilisateur</label
       >
     </div>
-    <div class="flex items-center relative">
+    <div class="relative flex items-center">
       <input
         placeholder="‎"
         type="password"
         name="password"
         id="password"
         required
-        class="rounded bg-transparent border-2 hover:border-blue-500 transition-all duration-300 border-white focus:ring-0 focus:border-white peer w-full"
+        class="w-full transition-all duration-300 bg-transparent border-2 border-white rounded hover:border-blue-500 focus:ring-0 focus:border-white peer"
       />
       <label
         for="password"
-        class="absolute bg-gradient-to-r text-sm from-purple-400 to-blue-400 bg-clip-text uppercase font-semibold peer-focus:px-0 peer-placeholder-shown:px-4 pointer-events-none peer-placeholder-shown:text-white/80 transition-all duration-300 peer-focus:text-transparent text-transparent peer-focus:-translate-y-10 -translate-y-10 peer-placeholder-shown:translate-y-0"
+        class="absolute text-sm font-semibold text-transparent uppercase transition-all duration-300 -translate-y-10 pointer-events-none bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text peer-focus:px-0 peer-placeholder-shown:px-4 peer-placeholder-shown:text-white/80 peer-focus:text-transparent peer-focus:-translate-y-10 peer-placeholder-shown:translate-y-0"
         >Mot de passe</label
       >
     </div>
     {% if error %}
     <div
       id="error"
-      class="-my-8 bg-red-500 px-4 py-2 w-full rounded flex justify-between items-center transition-all duration-300"
+      class="flex items-center justify-between w-full px-4 py-2 -my-8 transition-all duration-300 bg-red-500 rounded md:px-0"
     >
       <span>{{error}}</span>
       <button type="button" id="close_error">
-        <i class="fa-solid fa-multiply cursor-pointer"></i>
+        <i class="cursor-pointer fa-solid fa-multiply"></i>
       </button>
     </div>
     {% endif %}
-    <div class="w-full grid grid-cols-2 gap-x-4">
+    <div class="grid w-full grid-cols-2 gap-x-4">
       <button
-        class="uppercase text-sm font-semibold flex items-center justify-center w-full bg-purple-700 rounded py-2 hover:bg-purple-500 transition-all duration-300"
+        class="flex items-center justify-center w-full py-2 text-sm font-semibold uppercase transition-all duration-300 bg-purple-700 rounded hover:bg-purple-500"
       >
         Se connecter
       </button>
       <a
         href="{% url 'signup' %}"
-        class="uppercase text-sm font-semibold flex items-center justify-center w-full bg-blue-700 rounded py-2 text-center hover:bg-blue-500 transition-all duration-300"
+        class="flex items-center justify-center w-full py-2 text-sm font-semibold text-center uppercase transition-all duration-300 bg-blue-700 rounded hover:bg-blue-500"
         >S'inscrire</a
       >
     </div>
@@ -62,15 +65,16 @@
   const error = document.getElementById("error");
   const close_error = document.getElementById("close_error");
 
-  close_error.onclick = (e) => {
-    e.preventDefault();
+  if (close_error)
+    close_error.onclick = (e) => {
+      e.preventDefault();
 
-    error.classList.add("opacity-0");
-    error.classList.add("-translate-x-52");
+      error.classList.add("opacity-0");
+      error.classList.add("-translate-x-52");
 
-    setTimeout(() => {
-      error.remove();
-    }, 300);
-  };
+      setTimeout(() => {
+        error.remove();
+      }, 300);
+    };
 </script>
 {% endblock javascript %}
