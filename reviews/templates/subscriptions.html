@@ -40,13 +40,13 @@
           />
           <button
             type="submit"
-            class="px-4 py-2 font-bold text-white transition-all duration-300 rounded hover:text-red-500"
+            class="px-4 py-2 font-bold text-white transition-all duration-300 rounded hover:animate-pulse hover:text-red-500"
           >
             <i class="fa-solid fa-multiply"> </i>
           </button>
         </form>
         <p
-          class="font-bold text-transparent bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text"
+          class="font-bold text-transparent animate-gradient-xy bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text"
         >
           {{follow.followed_user.username}}
         </p>
@@ -66,7 +66,7 @@
       {% for follow in followers %}
       <div class="flex items-center gap-x-2">
         <p
-          class="font-bold text-transparent bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text"
+          class="font-bold text-transparent animate-gradient-xy bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text"
         >
           {{follow.user.username}}
         </p>
