@@ -1,35 +1,29 @@
 from django.contrib.auth.decorators import login_required
-from django.db.models import CharField, Value, Q
+from django.db.models import CharField, Value
 from django.shortcuts import render
 
 from itertools import chain
 
 from ..models.Ticket import Ticket
 from ..models.Review import Review
-from ..models.UserFollows import UserFollows
 
 
 def get_users_viewable_reviews(user):
     if not user.is_authenticated:
         return Ticket.objects.none()
 
-    follows = [x['followed_user_id'] for x in UserFollows.objects.filter(
-        user=user).values('followed_user_id')]
-    return Review.objects.filter(Q(user=user) | Q(ticket__user=user) | Q(user__in=follows))
+    return Review.objects.filter(user=user)
 
 
 def get_users_viewable_tickets(user):
     if not user.is_authenticated:
         return Ticket.objects.none()
-
-    follows = [x['followed_user_id'] for x in UserFollows.objects.filter(
-        user=user).values('followed_user_id')]
-    return Ticket.objects.filter(Q(user=user) | Q(user__in=follows))
+    return Ticket.objects.filter(user=user)
 
 
 @login_required(login_url='/login')
-def index_view(request):
-    template = 'index.html'
+def posts_view(request):
+    template = 'posts.html'
 
     reviews = get_users_viewable_reviews(request.user)
     # returns queryset of reviews

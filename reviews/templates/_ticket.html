@@ -1,0 +1,31 @@
+<div class="flex flex-col px-4 py-2 rounded bg-neutral-900 gap-y-2">
+    <div class="flex items-center justify-between">
+      {% if post.user == request.user %}
+      <span class="text-sm font-semibold">
+        Vous avez demandé une critique
+      </span>
+      {% else %}
+      <span class="text-sm font-semibold">
+        {{ post.user }} a demandé une critique
+      </span>
+      {% endif %}
+      <span>{{post.time_created|date:"H:i, j E Y"}}</span>
+    </div>
+    <h3>{{post.title}}</h3>
+    <p>{{post.description}}</p>
+    <div class="grid grid-cols-2">
+      {% if post.image %}
+      <img src="{{post.image}}" class="object-contain w-full h-52" />
+      {% else %}
+      <div></div>
+      {% endif %} 
+      {% if post.review.all|length == 0%}
+      <a
+        href="{% url 'create_review_by_ticket_id' post.id %}"
+        class="px-8 py-1 mt-auto ml-auto transition-all duration-300 rounded bg-gradient-to-r from-purple-700 to-blue-600 hover:opacity-80 h-min w-max"
+      >
+        Créer une critique
+      </a>
+      {% endif %}
+    </div>
+  </div>

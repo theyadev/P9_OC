@@ -2,15 +2,24 @@
 <div class="w-2/3 py-4 mx-auto">
   <div class="grid w-full grid-cols-2 gap-x-4">
     <a
-      href="#"
+      href="{% url 'create_ticket' %}"
       class="flex items-center justify-center w-full py-2 text-sm font-semibold text-center uppercase transition-all duration-300 bg-purple-700 rounded hover:bg-purple-500"
       >Demander une critique</a
     >
     <a
-      href="#"
+      href="{% url 'create_review' %}"
       class="flex items-center justify-center w-full py-2 text-sm font-semibold text-center uppercase transition-all duration-300 bg-blue-700 rounded hover:bg-blue-500"
       >Creer une critique</a
     >
+  </div>
+  <div class="flex flex-col mt-4 gap-y-4">
+    {% for post in posts %}
+      {% if post.content_type == 'TICKET' %} 
+        {% include '_ticket.html' %}
+      {% elif post.content_type == 'REVIEW' %}
+        {% include '_review.html' %}
+      {% endif %}
+    {% endfor %}
   </div>
 </div>
 {% endblock content %}

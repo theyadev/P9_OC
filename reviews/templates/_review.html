@@ -1,0 +1,31 @@
+<div class="flex flex-col px-4 py-2 rounded bg-neutral-900 gap-y-2">
+  <div class="flex items-center justify-between">
+    {% if post.user == request.user %}
+    <span class="text-sm font-semibold">
+      Vous avez publié une critique
+    </span>
+    {% else %}
+    <span class="text-sm font-semibold">
+      {{ post.user }} a publié une critique
+    </span>
+    {% endif %}
+    <span>{{post.time_created|date:"H:i, j E Y"}}</span>
+  </div>
+  <div class="flex items-center gap-x-4">
+    <h3 class="text-lg font-semibold">{{post.headline}}</h3>
+    <div class="flex gap-x-1">
+      {% for i in '12345' %}
+      <i class="fa-solid fa-star {% if post.rating >= i|add:"0" %} text-yellow-400{% endif %}"></i>
+      {% endfor %}
+    </div>
+  </div>
+  <p>{{post.body}}</p>
+  <div class="flex flex-col px-4 py-2 mx-4 rounded bg-neutral-800 gap-y-2">
+    <h5>Ticket - {{post.ticket.user.username}}</h5>
+    <h5>{{post.ticket.title}}</h5>
+    <p>{{post.ticket.description}}</p>
+    {% if post.ticket.image %}
+    <img src="{{post.ticket.image.url}}" class="object-contain w-max h-52" />
+    {% endif %}
+  </div>
+</div>
