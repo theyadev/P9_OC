@@ -23,7 +23,6 @@
   <div class="flex flex-col px-4 py-2 mx-4 rounded bg-neutral-800 gap-y-2">
     <h5>Ticket - {{post.ticket.user.username}}</h5>
     <h5>{{post.ticket.title}}</h5>
-    <p>{{post.ticket.description}}</p>
     {% if post.ticket.image %}
     <img src="{{post.ticket.image.url}}" class="object-contain w-max h-52" />
     {% endif %}
