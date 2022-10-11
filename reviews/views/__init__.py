@@ -1,5 +1,7 @@
 from .create_review import create_review_view
 from .create_ticket import create_ticket_view
+from .delete_review import delete_review_view
+from .delete_ticket import delete_ticket_view
 from .index import index_view
 from .login import login_view
 from .logout import logout_view
