@@ -5,7 +5,7 @@ from ..models.Review import Review
 
 
 @login_required(login_url='/login')
-def create_review_view(request, ticket_id=None):
+def create_review_view(request, ticket_id=None, review_id=None):
     template = 'create_review.html'
 
     context = {}
@@ -14,6 +14,20 @@ def create_review_view(request, ticket_id=None):
 
     if Ticket.objects.filter(id=ticket_id).exists():
         ticket = Ticket.objects.get(id=ticket_id)
+        context['ticket'] = ticket
+
+    if review_id:
+        if not Review.objects.filter(id=review_id).exists():
+            return redirect('index')
+
+        review = Review.objects.get(id=review_id)
+
+        if not review.user == request.user:
+            return redirect('index')
+
+        ticket = review.ticket
+
+        context['review'] = review
         context['ticket'] = ticket
 
     if request.method == 'POST':
@@ -33,15 +47,19 @@ def create_review_view(request, ticket_id=None):
                 user=request.user
             )
 
-        review = Review(
-            ticket=ticket,
-            user=request.user,
-            headline=headline,
-            body=body,
-            rating=rating
-        )
-
-        review.save()
+        if review_id:
+            review.headline = headline
+            review.body = body
+            review.rating = rating
+            review.save()
+        else:
+            Review.object.create(
+                ticket=ticket,
+                user=request.user,
+                headline=headline,
+                body=body,
+                rating=rating
+            )
 
         return redirect('index')
 

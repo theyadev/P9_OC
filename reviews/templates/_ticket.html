@@ -19,13 +19,23 @@
       {% else %}
       <div></div>
       {% endif %} 
-      {% if post.review.all|length == 0%}
-      <a
-        href="{% url 'create_review_by_ticket_id' post.id %}"
-        class="px-8 py-1 mt-auto ml-auto transition-all duration-300 rounded bg-gradient-to-r from-purple-700 to-blue-600 hover:opacity-80 h-min w-max"
-      >
-        Créer une critique
-      </a>
-      {% endif %}
+      <div class="flex items-end justify-end w-full h-full gap-x-2">
+        {% if post.user == request.user %}
+        <a
+        href="{% url 'edit_ticket' post.id %}"
+        class="px-8 py-1 transition-all duration-300 rounded bg-gradient-to-r from-blue-600 to-purple-700 hover:opacity-80 h-min w-max"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+        {% endif %}
+        {% if post.review.all|length == 0%}
+        <a
+          href="{% url 'create_review_by_ticket_id' post.id %}"
+          class="px-8 py-1 transition-all duration-300 rounded bg-gradient-to-r from-purple-700 to-blue-600 hover:opacity-80 h-min w-max"
+        >
+          Créer une critique
+        </a>
+        {% endif %}
+      </div>
     </div>
   </div>

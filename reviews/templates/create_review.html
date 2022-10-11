@@ -62,6 +62,7 @@
         id="headline"
         placeholder="Titre"
         required
+        value="{{review.headline}}"
         class="w-full transition-all duration-300 bg-transparent border-2 border-white rounded hover:border-purple-500 focus:ring-0 focus:border-white peer"
       />
       <label for="body" class="text-sm font-semibold uppercase"
@@ -75,23 +76,24 @@
         required
         placeholder="Commentaire"
         class="w-full transition-all duration-300 bg-transparent border-2 border-white rounded hover:border-purple-500 focus:ring-0 focus:border-white peer"
-      ></textarea>
+      >{{review.body}}</textarea>
         <label for="rating" class="text-sm font-semibold uppercase">Note</label>
         <select
           name="rating"
           id="rating"
+          required
           class="w-full transition-all duration-300 bg-transparent border-2 border-white rounded hover:border-purple-500 focus:ring-0 focus:border-white peer">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option {% if review.rating == 1 %}selected{% endif %} value="1">1</option>
+            <option {% if review.rating == 2 %}selected{% endif %} value="2">2</option>
+            <option {% if review.rating == 3 %}selected{% endif %} value="3">3</option>
+            <option {% if review.rating == 4 %}selected{% endif %} value="4">4</option>
+            <option {% if review.rating == 5 %}selected{% endif %} value="5">5</option>
         </select>
         
       <button
         class="flex items-center justify-center px-12 py-2 ml-auto text-sm font-semibold text-center uppercase transition-all duration-300 bg-blue-700 rounded w-max hover:bg-blue-500"
       >
-        Créer
+        {% if review %}Editer{%else%}Créer{% endif %}
       </button>
     </form>
   </div>

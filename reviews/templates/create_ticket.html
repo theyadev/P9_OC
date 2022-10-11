@@ -15,6 +15,7 @@
         name="title"
         id="title"
         placeholder="Titre"
+        value="{{ ticket.title}}"
         required
         class="w-full transition-all duration-300 bg-transparent border-2 border-white rounded hover:border-purple-500 focus:ring-0 focus:border-white peer"
       />
@@ -29,7 +30,11 @@
         required
         placeholder="Description"
         class="w-full transition-all duration-300 bg-transparent border-2 border-white rounded hover:border-purple-500 focus:ring-0 focus:border-white peer"
-      ></textarea>
+      >{{ticket.description}}</textarea>
+      {% if ticket.image and ticket.image.url %}
+      <p class="text-sm font-semibold uppercase">Ancienne image</p>
+      <img src="{{ticket.image.url}}" class="object-contain h-12 w-min"/>
+      {% endif %}
       <label for="image" class="text-sm font-semibold uppercase">Image</label>
       <input
         type="file"
@@ -41,7 +46,7 @@
       <button
         class="flex items-center justify-center px-12 py-2 ml-auto text-sm font-semibold text-center uppercase transition-all duration-300 bg-blue-700 rounded w-max hover:bg-blue-500"
       >
-        Créer
+      {% if review %}Editer{%else%}Créer{% endif %}
       </button>
     </form>
   </div>
