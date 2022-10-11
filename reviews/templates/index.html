@@ -19,6 +19,8 @@
       {% elif post.content_type == 'REVIEW' %}
         {% include '_review.html' %}
       {% endif %}
+    {% empty %}
+    <h4 class="font-semibold text-center uppercase">Rien a voir <i class="fa-solid fa-face-sad-cry"></i></h4>  
     {% endfor %}
   </div>
 </div>
