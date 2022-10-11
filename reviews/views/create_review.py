@@ -53,7 +53,7 @@ def create_review_view(request, ticket_id=None, review_id=None):
             review.rating = rating
             review.save()
         else:
-            Review.object.create(
+            Review.objects.create(
                 ticket=ticket,
                 user=request.user,
                 headline=headline,
