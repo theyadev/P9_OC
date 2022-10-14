@@ -37,7 +37,8 @@ def create_ticket_view(request, ticket_id=None):
         if ticket_id:
             ticket.title = title
             ticket.description = description
-            ticket.image = image
+            if image:
+                ticket.image = image
             ticket.save()
         else:
             Ticket.objects.create(
